@@ -28,19 +28,44 @@ However, the remaining flip-flops should be made ready to toggle only when all l
 
 **Procedure**
 
-/* write all the steps invloved */
+Step 1: Initialize the Counter Initialize the counter with n bits, where n is the number of bits in the counter. Set all bits to 0.
+
+Step 2: Receive Clock Pulse Receive a clock pulse (CLK) from the clock source.
+
+Step 3: Check Enable Signal Check the enable signal (EN). If EN is 0, go to step 6.
+
+Step 4: Increment Counter If EN is 1, increment the counter by 1. This is done by adding 1 to the current count.
+
+Step 5: Update Counter Outputs Update the counter outputs (Qn-1, Qn-2, ..., Q0) to reflect the new count.
+
+Step 6: Repeat Repeat steps 2-5 for each clock pulse.
 
 **PROGRAM**
+```
+module exp11(out,clk,rst);
+input clk,rst;
+output reg[3:0]out;
+always @(posedge clk)
+begin 
+if(rst) 
+  out <= 0;
+else 
+  out <= out+1;
+end 
+endmodule 
+```
+Developed by: JYOTSHANA S R
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-
-Developed by: RegisterNumber:
-*/
+RegisterNumber: 212224230111
 
 **RTL LOGIC UP COUNTER**
 
+![image](https://github.com/user-attachments/assets/984829ea-fab4-4b55-b692-f29ba0627b3d)
+
 **TIMING DIAGRAM FOR IP COUNTER**
 
-**TRUTH TABLE**
+![image](https://github.com/user-attachments/assets/913c9bb2-a830-40a6-bd8b-861a7c70470a)
 
 **RESULTS**
+
+Thus the program exceeded sucessfully
